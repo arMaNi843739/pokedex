@@ -5,7 +5,7 @@ import PokemonDetail from './PokemonDetail';
 import Error404 from './error/Error404';
 import Error500 from './error/Error500';
 
-const ROOT_URL = process.env.PUBLIC_URL + "/pokedex"; // for github pages
+const ROOT_URL = "/pokedex"; // for github pages
 
 function App() {
   return (
@@ -25,10 +25,10 @@ function App() {
         <Route path="*" element={<Navigate replace to="/error404" />} />
 
         {/* 404 Not Foundのページ */}
-        <Route path="/error404" element={<Error404 />} />
+        <Route path={ROOT_URL + "/error404"} element={<Error404 />} />
 
         {/* 500 Internal Server Errorのページ */}
-        <Route path="/error500" element={<Error500 />} />
+        <Route path={ROOT_URL + "/error500"} element={<Error500 />} />
       </Routes>
     </div>
   )
