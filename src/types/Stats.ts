@@ -1,3 +1,4 @@
+// ポケモンのステータスを持つ型
 type Stats = {
   hp: number;
   atk: number;

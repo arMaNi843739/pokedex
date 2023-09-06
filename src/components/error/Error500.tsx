@@ -1,6 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 
-function NotFound() {
+// "500 Internal Server Error"を表示するコンポーネント
+function Error500() {
   return (
     <Grid
       alignItems="center"
@@ -10,9 +11,9 @@ function NotFound() {
       spacing={2}
       sx={{mt:2, mb: 2}}
     >
-      <Typography variant="h3" align="center">404 Not Found</Typography>
+      <Typography variant="h3" align="center">500 Internal Server Error</Typography>
     </Grid>
   )
 }
 
-export default NotFound;
+export default Error500;
