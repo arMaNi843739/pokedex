@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { API_ROOT } from '../definisions'
+import { ROOT_URL, API_ROOT } from '../definisions'
 import axios from 'axios'
 import Pokemon from '../types/Pokemon'
 import Type from '../types/Type';
@@ -68,7 +68,7 @@ function PokemonDetail() {
         });
       } catch(err: any) {
         // APIでエラーが発生した場合、"500 Internal Server Error"とする
-        navigate("/error500");
+        navigate(ROOT_URL + "/error500");
       }
     }
 

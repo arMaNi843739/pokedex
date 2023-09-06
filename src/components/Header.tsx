@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import { ROOT_URL } from '../definisions';
 
 // ヘッダーを表示するのコンポーネント
 function Header() {
@@ -17,7 +18,7 @@ function Header() {
           <Button
             variant="text"
             style={{ color: "white", textTransform: "none", fontSize: "20px" }}
-            onClick={() => navigate("/")}
+            onClick={() => navigate(ROOT_URL + "/")}
           >
             Pokedex
           </Button>

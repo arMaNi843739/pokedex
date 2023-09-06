@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Pokemon from '../types/Pokemon';
 import axios from 'axios';
-import { API_ROOT } from '../definisions';
+import { ROOT_URL, API_ROOT } from '../definisions';
 import { Grid, IconButton, Pagination, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, TextField, Alert, Snackbar } from '@mui/material';
 import Type from '../types/Type';
 import SearchIcon from '@mui/icons-material/Search';
@@ -57,7 +57,7 @@ function Pokedex() {
         setMaxPage(Math.floor(rs.data['count'] / POKEMONS_PER_PAGE));
       } catch (err: any) {
         // APIでエラーが発生した場合、"500 Internal Server Error"とする
-        navigate("/error500")
+        navigate(ROOT_URL + "/error500")
       }
     };
 
@@ -87,14 +87,14 @@ function Pokedex() {
       // 無い場合は404 Not Foundが返ってくる
       const rs = await axios.get(API_ROOT + `/pokemon/${searchKey}`);
       // 見つかった場合、ポケモンの詳細データページに移動する
-      navigate(`/pokemon/${rs.data['name']}`)
+      navigate(ROOT_URL + `/pokemon/${rs.data['name']}`)
     } catch (err: any) {
       if(err.response.status === 404) {
         // 検索キーに一致するポケモンが見つからなかった場合、エラー通知を表示する
         openAlert();
       } else {
         // その他のAPIエラーは500 Internal Server Errorとする
-        navigate("/error500");
+        navigate(ROOT_URL + "/error500");
       }
     }
   }
@@ -159,7 +159,7 @@ function Pokedex() {
                     <TableRow key={p.id}>
                       {/* ポケモンの詳細ページへ移動するためのボタンのセル。ボタンがクリックされたら"/pokemon/{ポケモン名}"のページにナビゲートする */}
                       <TableCell>
-                        <IconButton aria-label='search' onClick={() => navigate(`/pokemon/${p.name}`)}>
+                        <IconButton aria-label='search' onClick={() => navigate(ROOT_URL + `/pokemon/${p.name}`)}>
                           <ListAltIcon />
                         </IconButton>
                       </TableCell>

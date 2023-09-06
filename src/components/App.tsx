@@ -4,8 +4,7 @@ import Pokedex from './Pokedex';
 import PokemonDetail from './PokemonDetail';
 import Error404 from './error/Error404';
 import Error500 from './error/Error500';
-
-const ROOT_URL = "/pokedex"; // for github pages
+import { ROOT_URL } from '../definisions';
 
 function App() {
   return (
