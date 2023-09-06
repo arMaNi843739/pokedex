@@ -5,6 +5,8 @@ import PokemonDetail from './PokemonDetail';
 import Error404 from './error/Error404';
 import Error500 from './error/Error500';
 
+const ROOT_URL = process.env.PUBLIC_URL;
+
 function App() {
   return (
     <div className="App">
@@ -14,10 +16,10 @@ function App() {
       {/* ルーティング */}
       <Routes>
         {/* "/"ではポケモンのリストを表示 */}
-        <Route path="/" element={<Pokedex />} />
+        <Route path={ROOT_URL} element={<Pokedex />} />
 
         {/* "/pokemon/:name"ではその名前のポケモンの詳細を表示 */}
-        <Route path="/pokemon/:name" element={<PokemonDetail />} />
+        <Route path={ROOT_URL + "/pokemon/:name"} element={<PokemonDetail />} />
 
         {/* 上のルーティングに当てはまらない場合、404 Not Foundへリダイレクト */}
         <Route path="*" element={<Navigate replace to="/error404" />} />
