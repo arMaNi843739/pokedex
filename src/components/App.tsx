@@ -21,7 +21,7 @@ function App() {
         <Route path={ROOT_URL + "/pokemon/:name"} element={<PokemonDetail />} />
 
         {/* 上のルーティングに当てはまらない場合、404 Not Foundへリダイレクト */}
-        <Route path={ROOT_URL + "/*"} element={<Navigate replace to="/error404" />} />
+        <Route path="*" element={<Navigate replace to="/error404" />} />
 
         {/* 404 Not Foundのページ */}
         <Route path={ROOT_URL + "/error404"} element={<Error404 />} />
